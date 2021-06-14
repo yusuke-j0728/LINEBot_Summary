@@ -1,0 +1,360 @@
+<!DOCTYPE html><html><head>
+      <title>LINEbot</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/yusuke.jindo/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.21/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="linebot%E6%A6%82%E8%A6%81">LINEBot&#x6982;&#x8981;</h1>
+
+<h2 class="mume-header" id="%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3">&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x56F3;</h2>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="1331px" preserveAspectRatio="none" style="width:1237px;height:1331px;" version="1.1" viewBox="0 0 1237 1331" width="1237px" zoomAndPan="magnify"><defs><filter height="300%" id="flcr10fahsux0" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#DDDDDD" height="1319.709" style="stroke:#A80036;stroke-width:1.0;" width="206" x="203.5" y="6"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="30" x="291.5" y="18.5684">LINE</text><rect fill="#DDDDDD" height="1319.709" style="stroke:#A80036;stroke-width:1.0;" width="365.5" x="503" y="6"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="45" x="663.25" y="18.5684">github</text><rect fill="#DDDDDD" height="1319.709" style="stroke:#A80036;stroke-width:1.0;" width="230" x="1001" y="6"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="1093" y="18.5684">google</text><rect fill="#FFFFFF" filter="url(#flcr10fahsux0)" height="324.0371" style="stroke:#000000;stroke-width:2.0;" width="833.5" x="197.5" y="105.4883"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="23" x2="23" y1="88.4883" y2="1239.2207"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="241.5" x2="241.5" y1="88.4883" y2="1239.2207"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="382.5" x2="382.5" y1="88.4883" y2="1239.2207"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="553" x2="553" y1="88.4883" y2="1239.2207"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="705" x2="705" y1="88.4883" y2="1239.2207"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="838.5" x2="838.5" y1="88.4883" y2="1239.2207"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1026" x2="1026" y1="88.4883" y2="1239.2207"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1176" x2="1176" y1="88.4883" y2="1239.2207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="30" x="5" y="85.5352">user</text><ellipse cx="23" cy="15" fill="#FEFECE" filter="url(#flcr10fahsux0)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M23,23 L23,50 M10,31 L36,31 M23,50 L10,65 M23,50 L36,65 " fill="none" filter="url(#flcr10fahsux0)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="30" x="5" y="1251.7559">user</text><ellipse cx="23" cy="1264.709" fill="#FEFECE" filter="url(#flcr10fahsux0)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M23,1272.709 L23,1299.709 M10,1280.709 L36,1280.709 M23,1299.709 L10,1314.709 M23,1299.709 L36,1314.709 " fill="none" filter="url(#flcr10fahsux0)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="65" x="207.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="51" x="214.5" y="73.5352">LINEBot</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="65" x="207.5" y="1238.2207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="51" x="214.5" y="1258.7559">LINEBot</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="41" x="360.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="367.5" y="73.5352">LIFF</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="41" x="360.5" y="1238.2207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="367.5" y="1258.7559">LIFF</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="88" x="507" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="514" y="73.5352">index.html</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="88" x="507" y="1238.2207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="514" y="1258.7559">index.html</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="68" x="669" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="54" x="676" y="73.5352">index.js</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="68" x="669" y="1238.2207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="54" x="676" y="1258.7559">index.js</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="47" x="813.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="33" x="820.5" y="73.5352">liff.js</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="47" x="813.5" y="1238.2207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="33" x="820.5" y="1258.7559">liff.js</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="38" x="1005" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="24" x="1012" y="73.5352">gas</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="38" x="1005" y="1238.2207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="24" x="1012" y="1258.7559">gas</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="98" x="1125" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="1132" y="73.5352">spreadsheet</text><rect fill="#FEFECE" filter="url(#flcr10fahsux0)" height="30.4883" style="stroke:#A80036;stroke-width:1.5;" width="98" x="1125" y="1238.2207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="1132" y="1258.7559">spreadsheet</text><path d="M197.5,105.4883 L294.5,105.4883 L294.5,112.4883 L284.5,122.4883 L197.5,122.4883 L197.5,105.4883 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="324.0371" style="stroke:#000000;stroke-width:2.0;" width="833.5" x="197.5" y="105.4883"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="52" x="212.5" y="119.0566">&#x524D;&#x63D0;&#x51E6;&#x7406;</text><line style="stroke:#A80036;stroke-width:1.0;" x1="553" x2="595" y1="144.1094" y2="144.1094"/><line style="stroke:#A80036;stroke-width:1.0;" x1="595" x2="595" y1="144.1094" y2="157.1094"/><line style="stroke:#A80036;stroke-width:1.0;" x1="554" x2="595" y1="157.1094" y2="157.1094"/><polygon fill="#A80036" points="564,153.1094,554,157.1094,564,161.1094,560,157.1094" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="71" x="560" y="139.3672">Form&#x306E;&#x4F5C;&#x6210;</text><line style="stroke:#A80036;stroke-width:1.0;" x1="705" x2="747" y1="217.041" y2="217.041"/><line style="stroke:#A80036;stroke-width:1.0;" x1="747" x2="747" y1="217.041" y2="230.041"/><line style="stroke:#A80036;stroke-width:1.0;" x1="706" x2="747" y1="230.041" y2="230.041"/><polygon fill="#A80036" points="716,226.041,706,230.041,716,234.041,712,230.041" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="102" x="712" y="181.6777">Form&#x306E;Submit&#x6642;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="712" y="196.9883">&#x306E;&#x51E6;&#x7406;&#x306E;&#x5B9A;&#x7FA9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="105" x="712" y="212.2988">(sendText&#x306E;&#x5B9F;&#x884C;)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="839" x2="881" y1="289.9727" y2="289.9727"/><line style="stroke:#A80036;stroke-width:1.0;" x1="881" x2="881" y1="289.9727" y2="302.9727"/><line style="stroke:#A80036;stroke-width:1.0;" x1="840" x2="881" y1="302.9727" y2="302.9727"/><polygon fill="#A80036" points="850,298.9727,840,302.9727,850,306.9727,846,302.9727" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="97" x="846" y="254.6094">sendText&#x306E;&#x5B9A;&#x7FA9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="90" x="846" y="269.9199">&#xFF08;LIFF&#x3092;&#x4F7F;&#x3063;&#x3066;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="173" x="846" y="285.2305">LINEBbot&#x306B;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x9001;&#x4FE1;&#xFF09;</text><polygon fill="#A80036" points="827,328.2832,837,332.2832,827,336.2832,831,332.2832" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="383" x2="833" y1="332.2832" y2="332.2832"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="82" x="390" y="327.541">LIFF ID&#x306E;&#x9023;&#x643A;</text><polygon fill="#A80036" points="394,372.9043,384,376.9043,394,380.9043,390,376.9043" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="388" x2="552" y1="376.9043" y2="376.9043"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="97" x="400" y="356.8516">Webhook&#x306E;&#x8A2D;&#x5B9A;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="146" x="400" y="372.1621">(github page&#x306E;URL&#x9023;&#x643A;)</text><polygon fill="#A80036" points="253,417.5254,243,421.5254,253,425.5254,249,421.5254" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="247" x2="382" y1="421.5254" y2="421.5254"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="259" y="401.4727">&#x30EA;&#x30C3;&#x30C1;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x306B;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="92" x="259" y="416.7832">LIFF URL&#x306E;&#x8A2D;&#x5B9A;</text><polygon fill="#A80036" points="230,469.1465,240,473.1465,230,477.1465,234,473.1465" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="23" x2="236" y1="473.1465" y2="473.1465"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="30" y="460.749">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="43" y="453.0938">&#x30EA;&#x30C3;&#x30C1;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x306E;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="182" x="43" y="468.4043">&#x300C;&#x7533;&#x3057;&#x8FBC;&#x307F;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x300D;&#x30AF;&#x30EA;&#x30C3;&#x30AF;</text><polygon fill="#A80036" points="371,498.457,381,502.457,371,506.457,375,502.457" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="242" x2="377" y1="502.457" y2="502.457"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="249" y="497.7148">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="90" x="262" y="497.7148">LIFF&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;</text><polygon fill="#A80036" points="541,527.7676,551,531.7676,541,535.7676,545,531.7676" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="383" x2="547" y1="531.7676" y2="531.7676"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="390" y="527.0254">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="110" x="403" y="527.0254">&#x7533;&#x8FBC;&#x307F;Form&#x306E;&#x8868;&#x793A;</text><polygon fill="#A80036" points="541,557.0781,551,561.0781,541,565.0781,545,561.0781" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="23" x2="547" y1="561.0781" y2="561.0781"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="30" y="556.3359">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="289" x="43" y="556.3359">&#x7533;&#x8FBC;&#x307F;&#x5185;&#x5BB9;&#x306E;&#x5165;&#x529B;&#xFF08;&#x540D;&#x524D;&#x3001;E-mail&#x3001;&#x6599;&#x91D1;&#x30D7;&#x30E9;&#x30F3;&#xFF09;</text><polygon fill="#A80036" points="693,586.3887,703,590.3887,693,594.3887,697,590.3887" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="553" x2="699" y1="590.3887" y2="590.3887"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="560" y="585.6465">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="115" x="573" y="585.6465">Form&#x306E;Submit&#x5B9F;&#x884C;</text><polygon fill="#A80036" points="827,615.6992,837,619.6992,827,623.6992,831,619.6992" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="705" x2="833" y1="619.6992" y2="619.6992"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="712" y="614.957">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="97" x="725" y="614.957">sendText&#x306E;&#x5B9F;&#x884C;</text><polygon fill="#A80036" points="394,645.0098,384,649.0098,394,653.0098,390,649.0098" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="388" x2="838" y1="649.0098" y2="649.0098"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="400" y="644.2676">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="413" y="644.2676">&#x7533;&#x8FBC;&#x307F;&#x5185;&#x5BB9;&#x306E;&#x9023;&#x643A;</text><polygon fill="#A80036" points="253,674.3203,243,678.3203,253,682.3203,249,678.3203" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="247" x2="382" y1="678.3203" y2="678.3203"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="259" y="673.5781">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="272" y="673.5781">&#x7533;&#x8FBC;&#x307F;&#x5185;&#x5BB9;&#x306E;&#x9023;&#x643A;</text><polygon fill="#A80036" points="34,703.6309,24,707.6309,34,711.6309,30,707.6309" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="28" x2="241" y1="707.6309" y2="707.6309"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="40" y="702.8887">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="53" y="702.8887">&#x7533;&#x8FBC;&#x307F;&#x5185;&#x5BB9;&#x306E;&#x51FA;&#x529B;</text><polygon fill="#A80036" points="1014,732.9414,1024,736.9414,1014,740.9414,1018,736.9414" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="242" x2="1020" y1="736.9414" y2="736.9414"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="249" y="732.1992">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="271" y="732.1992">&#x51FA;&#x529B;&#x60C5;&#x5831;&#x306E;&#x9023;&#x643A;</text><polygon fill="#A80036" points="253,762.252,243,766.252,253,770.252,249,766.252" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="247" x2="1025" y1="766.252" y2="766.252"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="259" y="761.5098">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="169" x="281" y="761.5098">&#x51FA;&#x529B;&#x60C5;&#x5831;&#x306B;&#x5408;&#x308F;&#x305B;&#x305F;&#x81EA;&#x52D5;&#x8FD4;&#x4FE1;</text><polygon fill="#A80036" points="34,791.5625,24,795.5625,34,799.5625,30,795.5625" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="28" x2="241" y1="795.5625" y2="795.5625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="40" y="790.8203">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="144" x="62" y="790.8203">Paypal&#x652F;&#x6255;&#x3044;&#x60C5;&#x5831;&#x306E;&#x51FA;&#x529B;</text><polygon fill="#A80036" points="1164,820.873,1174,824.873,1164,828.873,1168,824.873" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1026" x2="1170" y1="824.873" y2="824.873"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="1033" y="820.1309">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="1055" y="820.1309">&#x7533;&#x8FBC;&#x307F;&#x5185;&#x5BB9;&#x306E;&#x51FA;&#x529B;</text><polygon fill="#A80036" points="230,865.4941,240,869.4941,230,873.4941,234,869.4941" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="23" x2="236" y1="869.4941" y2="869.4941"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="30" y="857.0967">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="43" y="849.4414">&#x30EA;&#x30C3;&#x30C1;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x306E;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="156" x="43" y="864.752">&#x300C;&#x7A4D;&#x7ACB;&#x984D;&#x306E;&#x7533;&#x8ACB;&#x300D;&#x30AF;&#x30EA;&#x30C3;&#x30AF;</text><polygon fill="#A80036" points="371,894.8047,381,898.8047,371,902.8047,375,898.8047" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="242" x2="377" y1="898.8047" y2="898.8047"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="249" y="894.0625">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="90" x="262" y="894.0625">LIFF&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;</text><polygon fill="#A80036" points="541,924.1152,551,928.1152,541,932.1152,545,928.1152" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="383" x2="547" y1="928.1152" y2="928.1152"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="390" y="923.373">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="110" x="403" y="923.373">&#x7533;&#x8FBC;&#x307F;Form&#x306E;&#x8868;&#x793A;</text><polygon fill="#A80036" points="541,953.4258,551,957.4258,541,961.4258,545,957.4258" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="23" x2="547" y1="957.4258" y2="957.4258"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="30" y="952.6836">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="371" x="43" y="952.6836">&#x7533;&#x8FBC;&#x307F;&#x5185;&#x5BB9;&#x306E;&#x5165;&#x529B;&#xFF08;&#x6697;&#x53F7;&#x8CC7;&#x7523;&#x3001;&#x8CFC;&#x5165;&#x91CF;&#x3001;&#x30BF;&#x30A4;&#x30DF;&#x30F3;&#x30B0;&#x3001;API&#x30AD;&#x30FC;&#xFF09;</text><polygon fill="#A80036" points="693,982.7363,703,986.7363,693,990.7363,697,986.7363" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="553" x2="699" y1="986.7363" y2="986.7363"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="560" y="981.9941">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="115" x="573" y="981.9941">Form&#x306E;Submit&#x5B9F;&#x884C;</text><polygon fill="#A80036" points="827,1012.0469,837,1016.0469,827,1020.0469,831,1016.0469" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="705" x2="833" y1="1016.0469" y2="1016.0469"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="712" y="1011.3047">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="97" x="725" y="1011.3047">sendText&#x306E;&#x5B9F;&#x884C;</text><polygon fill="#A80036" points="394,1041.3574,384,1045.3574,394,1049.3574,390,1045.3574" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="388" x2="838" y1="1045.3574" y2="1045.3574"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="400" y="1040.6152">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="413" y="1040.6152">&#x7533;&#x8FBC;&#x307F;&#x5185;&#x5BB9;&#x306E;&#x9023;&#x643A;</text><polygon fill="#A80036" points="253,1070.668,243,1074.668,253,1078.668,249,1074.668" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="247" x2="382" y1="1074.668" y2="1074.668"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="259" y="1069.9258">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="272" y="1069.9258">&#x7533;&#x8FBC;&#x307F;&#x5185;&#x5BB9;&#x306E;&#x9023;&#x643A;</text><polygon fill="#A80036" points="34,1099.9785,24,1103.9785,34,1107.9785,30,1103.9785" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="28" x2="241" y1="1103.9785" y2="1103.9785"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="40" y="1099.2363">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="53" y="1099.2363">&#x7533;&#x8FBC;&#x307F;&#x5185;&#x5BB9;&#x306E;&#x51FA;&#x529B;</text><polygon fill="#A80036" points="1014,1129.2891,1024,1133.2891,1014,1137.2891,1018,1133.2891" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="242" x2="1020" y1="1133.2891" y2="1133.2891"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="249" y="1128.5469">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="271" y="1128.5469">&#x51FA;&#x529B;&#x60C5;&#x5831;&#x306E;&#x9023;&#x643A;</text><polygon fill="#A80036" points="253,1158.5996,243,1162.5996,253,1166.5996,249,1162.5996" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="247" x2="1025" y1="1162.5996" y2="1162.5996"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="259" y="1157.8574">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="169" x="281" y="1157.8574">&#x51FA;&#x529B;&#x60C5;&#x5831;&#x306B;&#x5408;&#x308F;&#x305B;&#x305F;&#x81EA;&#x52D5;&#x8FD4;&#x4FE1;</text><polygon fill="#A80036" points="34,1187.9102,24,1191.9102,34,1195.9102,30,1191.9102" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="28" x2="241" y1="1191.9102" y2="1191.9102"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="40" y="1187.168">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="117" x="62" y="1187.168">&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x305F;&#x65E8;&#x306E;&#x8FD4;&#x4FE1;</text><polygon fill="#A80036" points="1164,1217.2207,1174,1221.2207,1164,1225.2207,1168,1221.2207" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1026" x2="1170" y1="1221.2207" y2="1221.2207"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="1033" y="1216.4785">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="1055" y="1216.4785">&#x7533;&#x8FBC;&#x307F;&#x5185;&#x5BB9;&#x306E;&#x51FA;&#x529B;</text><!--MD5=[89fdf4cf2c90e2824fdf820ea5c95b22]
+@startuml
+actor user
+box LINE
+participant LINEBot as line
+participant LIFF 
+end box
+box github
+participant index.html 
+participant index.js 
+participant liff.js  
+end box
+box google
+participant gas
+participant spreadsheet as sheet
+end box
+
+group 前提処理
+index.html -> index.html : Formの作成
+index.js -> index.js : FormのSubmit時\nの処理の定義\n(sendTextの実行)
+liff.js -> liff.js : sendTextの定義\n（LIFFを使って\nLINEBbotにメッセージ送信）
+LIFF -> liff.js : LIFF IDの連携
+index.html -> LIFF : Webhookの設定\n(github pageのURL連携)
+LIFF -> line : リッチメニューに\nLIFF URLの設定
+end
+autonumber
+user -> line : リッチメニューの\n「申し込みフォーム」クリック
+line -> LIFF : LIFFリクエスト
+LIFF -> index.html :申込みFormの表示
+user -> index.html : 申込み内容の入力（名前、E-mail、料金プラン）
+index.html -> index.js : FormのSubmit実行
+index.js -> liff.js : sendTextの実行
+liff.js -> LIFF : 申込み内容の連携
+LIFF -> line : 申込み内容の連携
+line -> user : 申込み内容の出力
+line -> gas : 出力情報の連携
+gas -> line : 出力情報に合わせた自動返信
+line -> user : Paypal支払い情報の出力
+gas -> sheet : 申込み内容の出力
+
+autonumber
+user -> line : リッチメニューの\n「積立額の申請」クリック
+line -> LIFF : LIFFリクエスト
+LIFF -> index.html :申込みFormの表示
+user -> index.html : 申込み内容の入力（暗号資産、購入量、タイミング、APIキー）
+index.html -> index.js : FormのSubmit実行
+index.js -> liff.js : sendTextの実行
+liff.js -> LIFF : 申込み内容の連携
+LIFF -> line : 申込み内容の連携
+line -> user : 申込み内容の出力
+line -> gas : 出力情報の連携
+gas -> line : 出力情報に合わせた自動返信
+line -> user : 受け付けた旨の返信
+gas -> sheet : 申込み内容の出力
+
+@enduml
+
+PlantUML version 1.2020.26(Tue Dec 22 02:45:07 JST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p><h2 class="mume-header" id="%E3%83%AA%E3%83%83%E3%83%81%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E9%A0%85%E7%9B%AE">&#x30EA;&#x30C3;&#x30C1;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x9805;&#x76EE;</h2>
+
+<ol>
+<li>&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x6982;&#x8981;</li>
+<li>&#x7533;&#x3057;&#x8FBC;&#x307F;&#x30D5;&#x30A9;&#x30FC;&#x30E0;</li>
+<li>API&#x30AD;&#x30FC;&#x306E;&#x53D6;&#x5F97;&#x65B9;&#x6CD5;</li>
+<li>&#x7A4D;&#x7ACB;&#x984D;&#x306E;&#x7533;&#x8ACB;</li>
+<li>&#x304A;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;&#x30D5;&#x30A9;&#x30FC;&#x30E0;
+<ol>
+<li>&#x6599;&#x91D1;&#x5909;&#x66F4;</li>
+<li>&#x9000;&#x4F1A;</li>
+<li>&#x305D;&#x306E;&#x4ED6;&#x304A;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;</li>
+</ol>
+</li>
+</ol>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
